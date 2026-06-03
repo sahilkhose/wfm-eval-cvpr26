@@ -2,7 +2,7 @@
 
 [**Project page**](https://sahilkhose.github.io/wfm-eval-cvpr26/) · [**Paper (PDF)**](assets/wfm-eval-paper.pdf) · [**Poster (PDF)**](assets/wfm-eval-poster.pdf)
 
-Sahil Khose¹, Mengqi Zhang¹, Prithvijit Chattopadhyay², Judy Hoffman¹
+[Sahil Khose](https://sahilkhose.github.io/)¹, Mengqi Zhang¹, Prithvijit Chattopadhyay², Judy Hoffman¹
 &nbsp;&nbsp;|&nbsp;&nbsp; ¹UC Irvine &nbsp;·&nbsp; ²NVIDIA
 
 > Accepted at the **1st Workshop on Video World Models (VWM)** and the **2nd Workshop on Foundation Models Meet Embodied Agents (FMEA)**, CVPR 2026.
