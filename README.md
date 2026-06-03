@@ -7,6 +7,8 @@ Sahil Khose¹, Mengqi Zhang¹, Prithvijit Chattopadhyay², Judy Hoffman¹
 
 > Accepted at the **1st Workshop on Video World Models (VWM)** and the **2nd Workshop on Foundation Models Meet Embodied Agents (FMEA)**, CVPR 2026.
 
+> **Code coming soon.** The WFM-Eval toolkit (evaluation pipeline, metrics, and scripts) will be released in this repository soon. In the meantime, this repo hosts the [project page](https://sahilkhose.github.io/wfm-eval-cvpr26/).
+
 WFM-Eval is a multi-dimensional evaluation framework for video world models in
 robot manipulation. It decomposes video quality into three axes (**task
 completion**, **object hallucination**, and **temporal consistency**) with
