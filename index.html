@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>WFM-Eval: An Evaluation Framework for Video World Models in Robotic Manipulation</title>
+<meta name="description" content="WFM-Eval is a multi-dimensional evaluation framework for video world models in robotic manipulation. It decomposes video quality into task completion, object hallucination, and temporal consistency, and shows that model rankings change across datasets. VWM & FMEA @ CVPR 2026.">
+
+<!-- Social share previews -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sahilkhose.github.io/wfm-eval-cvpr26/">
+<meta property="og:title" content="WFM-Eval: An Evaluation Framework for Video World Models in Robotic Manipulation">
+<meta property="og:description" content="A multi-dimensional framework for evaluating video world models in robot manipulation. Model rankings change across datasets, and the diagnostics track downstream policy performance. VWM & FMEA @ CVPR 2026.">
+<meta property="og:image" content="https://sahilkhose.github.io/wfm-eval-cvpr26/assets/poster.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SahilKhose">
+<meta name="twitter:title" content="WFM-Eval: An Evaluation Framework for Video World Models in Robotic Manipulation">
+<meta name="twitter:description" content="A multi-dimensional framework for evaluating video world models in robot manipulation. VWM & FMEA @ CVPR 2026.">
+<meta name="twitter:image" content="https://sahilkhose.github.io/wfm-eval-cvpr26/assets/poster.png">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <span class="brand"><a href="#top">WFM-Eval</a></span>
+    <nav class="nav-links">
+      <a href="#abstract">Abstract</a>
+      <a href="#framework">Framework</a>
+      <a href="#findings">Findings</a>
+      <a href="#poster">Poster</a>
+      <button class="toggle" id="themeToggle" aria-label="Toggle dark mode">dark</button>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ============ Hero ============ -->
+  <section id="top" class="hero" style="scroll-margin-top:0">
+    <div class="venues">
+      <span class="venue">VWM @ CVPR 2026</span>
+      <span class="venue">FMEA @ CVPR 2026</span>
+    </div>
+
+    <h1>WFM-Eval: An Evaluation Framework for <em>Video World Models</em> in Robotic Manipulation</h1>
+
+    <!-- Author homepages: link where known; fill the others when available. -->
+    <p class="authors">
+      <a href="https://sahilkhose.github.io/">Sahil Khose</a><sup>1</sup>,
+      Mengqi Zhang<sup>1</sup>,
+      <a href="https://prithv1.xyz/">Prithvijit Chattopadhyay</a><sup>2</sup>,
+      Judy Hoffman<sup>1</sup>
+    </p>
+    <p class="affils"><sup>1</sup>UC Irvine&nbsp;&nbsp;·&nbsp;&nbsp;<sup>2</sup>NVIDIA</p>
+    <p class="corr"><a href="mailto:skhose@uci.edu">skhose@uci.edu</a></p>
+
+    <div class="actions">
+      <a class="btn primary" href="assets/wfm-eval-paper.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+        Paper
+      </a>
+      <a class="btn" href="assets/wfm-eval-poster.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        Poster
+      </a>
+      <a class="btn" href="https://github.com/sahilkhose/wfm-eval-cvpr26">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.3-1.8-1.3-1.8-1.1-.7 0-.7 0-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.6-.3-5.4-1.3-5.4-5.9 0-1.3.5-2.4 1.2-3.2 0-.3-.5-1.5.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+        Code
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ Stat strip ============ -->
+  <section style="padding-top:30px">
+    <div class="stats">
+      <div class="stat"><div class="num">5</div><div class="lab">video world models<br>benchmarked</div></div>
+      <div class="stat"><div class="num">69.5%</div><div class="lab">F1 of the best single<br>VLM judge</div></div>
+      <div class="stat"><div class="num">rank 1&rarr;5</div><div class="lab">same model across<br>two datasets</div></div>
+      <div class="stat"><div class="num">+8.75</div><div class="lab">LIBERO points<br>downstream</div></div>
+    </div>
+  </section>
+
+  <!-- ============ Abstract ============ -->
+  <section id="abstract">
+    <p class="shead">Abstract</p>
+    <div class="abstract prose">
+      <p class="lead">Video world models can generate synthetic training data for robot manipulation, but standard metrics (FVD, FID) miss the failure modes that determine whether policies trained on that data succeed. VLM-based holistic judges are a natural alternative, but no single VLM reliably predicts task completion: judges exhibit opposing biases that do not cancel under ensembling.</p>
+      <p>We introduce <strong>WFM-Eval</strong>, a multi-dimensional evaluation framework that decomposes video quality into three axes (<strong>task completion</strong>, <strong>object hallucination</strong>, and <strong>temporal consistency</strong>) with structured object-level diagnostics that bypass holistic judgment. We benchmark five video world models (Cosmos Predict2, Predict2.5, Veo&nbsp;3.1, HunyuanVideo&nbsp;1.5, Wan2.2) on GR1 and AgiBot.</p>
+      <p>We find that (1)&nbsp;object hallucination is the dominant model-discriminative failure mode, and (2)&nbsp;model rankings reverse between datasets: the GR1 leader is last on AgiBot and the AgiBot leader is mid-pack on GR1, so single-dataset benchmarks mislead. As supporting evidence, the framework&rsquo;s hallucination ranking aligns with downstream policy success on LIBERO, where Predict2 outperforms Predict2.5 by 8.75 points. We release WFM-Eval as an open toolkit.</p>
+    </div>
+  </section>
+
+  <!-- ============ Motivation ============ -->
+  <section id="motivation">
+    <p class="shead">Motivation</p>
+    <div class="grid2">
+      <div class="card">
+        <p class="axis">Background</p>
+        <h3>World models as a data source</h3>
+        <p>A video world model can generate a robot rollout from a single image and a language instruction, which makes it an appealing source of training data for manipulation policies. How useful that data is depends on whether the generated video is faithful to what should actually happen. Metrics like FVD and CLIP-Score capture visual realism, but they do not tell us whether the video shows the wrong action, adds objects that were never there, or moves them in ways that never occurred.</p>
+      </div>
+      <div class="card">
+        <p class="axis">Holistic judges</p>
+        <h3>A VLM judge is not enough on its own</h3>
+        <p>A natural alternative is to ask a vision-language model whether the task succeeded. We find this unreliable: no single VLM predicts task completion well, and different judges carry biases that point in opposite directions, so combining them does not help. The best single judge we tested (Kimi-K2.5) reaches only 69.5% F1, which is too coarse to anchor a benchmark.</p>
+      </div>
+    </div>
+
+    <figure class="fig narrow">
+      <div class="imgwrap"><img src="assets/fig-radar.png" alt="Radar chart of VLM-judge accuracy (F1) for task completion across six datasets." loading="lazy"></div>
+      <figcaption><b>Figure 1.</b> Task-completion accuracy (F1) for five VLM judges across six datasets. No judge is reliable everywhere, and their strengths and weaknesses fall on different datasets, so an ensemble does not recover a dependable signal.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ Framework ============ -->
+  <section id="framework">
+    <p class="shead">The WFM-Eval Framework</p>
+    <p class="prose" style="margin-top:-6px;color:var(--muted)">WFM-Eval organizes errors into three axes and four event types, and scores them with an automated pipeline that uses VLM grounding for object-level diagnosis rather than a single holistic verdict.</p>
+
+    <div class="grid3" style="margin-top:18px">
+      <div class="card">
+        <h3><span class="k">1</span>Task completion</h3>
+        <p>Whether the rollout actually carries out the instructed task, rather than only looking plausible.</p>
+      </div>
+      <div class="card">
+        <h3><span class="k">2</span>Object hallucination</h3>
+        <p>Whether objects appear from nothing or disappear partway through the rollout. This is the axis that separates models most clearly.</p>
+      </div>
+      <div class="card">
+        <h3><span class="k">3</span>Temporal consistency</h3>
+        <p>Whether objects move continuously, or jump between frames in ways that are physically impossible.</p>
+      </div>
+    </div>
+
+    <p class="shead" style="margin:30px 0 14px;color:var(--soft)">Four event types</p>
+    <div class="grid2">
+      <div class="card"><h3 style="font-size:16px">Phantom Appearance</h3><p>An object that is not present in the ground truth appears in the generated video.</p></div>
+      <div class="card"><h3 style="font-size:16px">Phantom Disappearance</h3><p>An object that is present in the ground truth disappears from the rollout before it should.</p></div>
+      <div class="card"><h3 style="font-size:16px">Position Drift</h3><p>An object gradually moves away from its ground-truth trajectory over the rollout.</p></div>
+      <div class="card"><h3 style="font-size:16px">Position Jump</h3><p>An object jumps to a new location instantly, with no motion connecting the two positions.</p></div>
+    </div>
+
+    <figure class="fig">
+      <div class="imgwrap"><img src="assets/fig-taxonomy.png" alt="Trajectory schematics for the four event types: phantom appearance, phantom disappearance, position drift, and position jump." loading="lazy"></div>
+      <figcaption><b>Figure 2.</b> Each event type as a trajectory signature against the ground truth. Top row: presence events, where an object appears that should not exist or disappears while still present. Bottom row: spatial events, where an object drifts off its trajectory or jumps with no connecting motion. Dashed lines mark the thresholds that trigger an event.</figcaption>
+    </figure>
+
+    <figure class="fig">
+      <div class="imgwrap"><img src="assets/fig-failure.png" alt="Real examples of the four event types: ground-truth target rollouts versus generated rollouts, with detected events boxed." loading="lazy"></div>
+      <figcaption><b>Figure 3.</b> The same event types in real rollouts, ground-truth target (top) against the generated video (bottom). The generations add an object that was never there, drop one that should remain, drift off the target trajectory, or jump an object to a new location. Colored boxes mark the event the pipeline detects.</figcaption>
+    </figure>
+
+    <p class="shead" style="margin:30px 0 14px;color:var(--soft)">Metrics</p>
+    <div class="metric-row">
+      <div class="metric"><span class="abbr">OHR</span><div class="desc">Object Hallucination Rate</div></div>
+      <div class="metric"><span class="abbr">PAR</span><div class="desc">Position-Anomaly Rate</div></div>
+      <div class="metric"><span class="abbr">TCS</span><div class="desc">Temporal-Consistency Score</div></div>
+      <div class="metric"><span class="abbr hl">HSS</span><div class="desc">Harm-weighted Severity Score, the main metric we report (lower is better)</div></div>
+    </div>
+  </section>
+
+  <!-- ============ Findings ============ -->
+  <section id="findings">
+    <p class="shead">Key Findings</p>
+
+    <div class="finding">
+      <span class="badge">Finding 1</span>
+      <h3>Object hallucination is the main differentiator between models</h3>
+      <p>Across the five families, object hallucination accounts for most of the difference between models. The temporal and realism-based measures vary much less. Standard metrics such as FVD and CLIP-Score do not capture hallucination, so it is easy to miss when models are compared on appearance alone.</p>
+    </div>
+
+    <div class="finding">
+      <span class="badge">Finding 2</span>
+      <h3>Rankings change across datasets</h3>
+      <p>Model rankings differ substantially between datasets. Predict2 ranks 1st on GR1 but 5th on AgiBot, while Hunyuan goes the other way, from 3rd on GR1 to 1st on AgiBot. Models trained on a specific domain tend to do well in distribution and worse out of it: Predict2&rsquo;s HSS degrades by 81% across the two datasets, compared with 19% for Hunyuan. The effect is not explained by model size, since the 2B Predict2 outperforms the 14B Wan2.2 on GR1.</p>
+      <p>Because of this, evaluating on a single dataset can be misleading. Veo&nbsp;3.1 is the only family that holds roughly the same rank on both.</p>
+
+      <div class="table-wrap" style="margin-top:16px">
+        <table class="results">
+          <caption>Table 1 &middot; HSS / OHR / PAR per dataset &nbsp;(lower HSS = better)</caption>
+          <thead>
+            <tr class="group">
+              <th rowspan="2" style="text-align:left">Model</th>
+              <th colspan="3">GR1</th>
+              <th colspan="3" class="divider">AgiBot</th>
+            </tr>
+            <tr>
+              <th>HSS</th><th>OHR</th><th>PAR</th>
+              <th class="divider">HSS</th><th>OHR</th><th>PAR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Predict2</th>
+              <td class="num best">.396</td><td class="num">.108</td><td class="num">.067</td>
+              <td class="num divider worst">.699</td><td class="num">.341</td><td class="num">.128</td>
+            </tr>
+            <tr>
+              <th>Veo 3.1</th>
+              <td class="num">.436</td><td class="num">.171</td><td class="num">.050</td>
+              <td class="num divider">.630</td><td class="num">.274</td><td class="num">.131</td>
+            </tr>
+            <tr>
+              <th>Hunyuan</th>
+              <td class="num">.482</td><td class="num">.200</td><td class="num">.048</td>
+              <td class="num divider best">.596</td><td class="num">.256</td><td class="num">.128</td>
+            </tr>
+            <tr>
+              <th>Predict2.5</th>
+              <td class="num">.501</td><td class="num">.210</td><td class="num">.049</td>
+              <td class="num divider">.682</td><td class="num">.322</td><td class="num">.128</td>
+            </tr>
+            <tr>
+              <th>Wan2.2</th>
+              <td class="num worst">.518</td><td class="num">.207</td><td class="num">.058</td>
+              <td class="num divider">.661</td><td class="num">.301</td><td class="num">.145</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tnote"><span class="chip-good">Green</span> = best per dataset &nbsp;·&nbsp; <span class="chip-bad">Red</span> = worst per dataset. Predict2 goes from best on GR1 to worst on AgiBot.</p>
+    </div>
+
+    <div class="finding">
+      <span class="badge">Finding 3</span>
+      <h3>The diagnostics track downstream policy performance</h3>
+      <p>We also checked whether the hallucination ranking corresponds to how well a model works as a policy. We take the pretrained Predict2 and Predict2.5 world models, attach an action head to each, and train them as policies on LIBERO, using the model&rsquo;s learned representation as the policy backbone.</p>
+      <p>The Predict2 backbone does noticeably better, by 8.75 success-rate points on average (95.45% vs. 86.70%), with the largest gap on LIBERO-Long (89.6 vs. 69.4). This is consistent with what the framework reports for these two models: Predict2.5 is worse on GR1 (0.095 higher HSS, with about <span class="em">52% more phantom appearances</span>), and we think this weaker representation is part of why its policy underperforms.</p>
+
+      <figure class="fig">
+        <div class="imgwrap"><img src="assets/fig-severity.png" alt="Hallucination-severity distributions for Predict2 versus Predict2.5 on AgiBot and GR1." loading="lazy"></div>
+        <figcaption><b>Figure 4.</b> Hallucination-severity distributions for Predict2 (blue) and Predict2.5 (pink). On AgiBot the two are essentially identical (KS p = 0.82). On GR1, Predict2.5 shifts toward higher severity with a spike at the maximum, the regression that corresponds to its weaker LIBERO policy.</figcaption>
+      </figure>
+    </div>
+
+    <!-- Takeaways -->
+    <div class="card" style="background:color-mix(in srgb,var(--accent) 7%,transparent);border-color:color-mix(in srgb,var(--accent) 30%,transparent)">
+      <p class="axis" style="color:var(--accent)">Takeaways</p>
+      <p style="color:var(--fg);margin:0 0 8px"><strong>1.</strong> Object hallucination is the main differentiator between models.</p>
+      <p style="color:var(--fg);margin:0 0 8px"><strong>2.</strong> Rankings change across datasets, so models should be evaluated on more than one.</p>
+      <p style="color:var(--fg);margin:0"><strong>3.</strong> The diagnostics track downstream policy performance.</p>
+    </div>
+  </section>
+
+  <!-- ============ Poster ============ -->
+  <section id="poster">
+    <p class="shead">Poster</p>
+    <a class="poster-fig" href="assets/wfm-eval-poster.pdf" title="Open full-resolution poster (PDF)">
+      <img src="assets/poster.png" alt="WFM-Eval poster covering motivation, the framework, cross-dataset rankings, and downstream policy transfer." loading="lazy">
+    </a>
+    <p class="cap">Click the poster to open the full-resolution PDF. &nbsp;VWM &amp; FMEA @ CVPR 2026.</p>
+  </section>
+
+  <footer>
+    <p>WFM-Eval &middot; UC Irvine &amp; NVIDIA &middot; accepted at the 1st Workshop on Video World Models and the 2nd Workshop on Foundation Models Meet Embodied Agents, CVPR 2026.</p>
+    <p class="mono">Page by <a href="https://sahilkhose.github.io/">Sahil Khose</a>. Design adapted from the academic template by Saining Xie &amp; Shiori Sagawa.</p>
+  </footer>
+
+</div>
+
+<script>
+  // Theme toggle (persist in localStorage; default light)
+  (function(){
+    var root = document.documentElement, btn = document.getElementById('themeToggle');
+    var saved = null;
+    try { saved = localStorage.getItem('wfm-theme'); } catch(e){}
+    if (saved) root.setAttribute('data-theme', saved);
+    function sync(){ btn.textContent = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; }
+    sync();
+    btn.addEventListener('click', function(){
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('wfm-theme', next); } catch(e){}
+      sync();
+    });
+  })();
+</script>
+</body>
+</html>
