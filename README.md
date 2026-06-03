@@ -8,8 +8,8 @@ Sahil Khose¹, Mengqi Zhang¹, Prithvijit Chattopadhyay², Judy Hoffman¹
 > Accepted at the **1st Workshop on Video World Models (VWM)** and the **2nd Workshop on Foundation Models Meet Embodied Agents (FMEA)**, CVPR 2026.
 
 WFM-Eval is a multi-dimensional evaluation framework for video world models in
-robot manipulation. It decomposes video quality into three axes — **task
-completion**, **object hallucination**, and **temporal consistency** — with
+robot manipulation. It decomposes video quality into three axes (**task
+completion**, **object hallucination**, and **temporal consistency**) with
 structured, object-level diagnostics scored by an automated VLM-grounding
 pipeline that bypasses unreliable holistic judgment.
 
@@ -25,14 +25,17 @@ pipeline that bypasses unreliable holistic judgment.
 A static project page served via GitHub Pages.
 
 ```
-index.html        — the project page
-stylesheet.css    — styling (Inter + JetBrains Mono, light/dark)
+index.html        the project page
+stylesheet.css    styling (Inter + JetBrains Mono, light/dark)
 favicon.svg
 assets/
-  poster.png            — rendered poster (2400px)
-  wfm-eval-poster.pdf   — full-resolution poster
-  wfm-eval-paper.pdf    — camera-ready paper
-  paper-thumb.png       — first-page thumbnail
+  poster.png            rendered poster (2400px)
+  wfm-eval-poster.pdf   full-resolution poster
+  wfm-eval-paper.pdf    camera-ready paper
+  fig-radar.png         Figure 1: VLM-judge accuracy
+  fig-taxonomy.png      Figure 2: error taxonomy
+  fig-failure.png       Figure 3: failure modes
+  fig-severity.png      Figure 4: severity distributions
 ```
 
 To preview locally: open `index.html`, or run `python3 -m http.server` and
